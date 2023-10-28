@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import ProductList from "./ProductList";
-import Product from "./Product";
+// import React, { useState } from "react";
+// import ProductList from "./ProductList";
+// import Product from "./Product";
+
+
 // function App(){
 //   // return (
 //   //   <div className="flex gap-3">
@@ -34,76 +36,99 @@ import Product from "./Product";
 //   }
 
 
- {/* <Product  title="Awesome coffee Mug" price={40}/> */}
-    {/* <Hello/>
+{/* <Product  title="Awesome coffee Mug" price={40}/> */ }
+{/* <Hello/>
     <div>value of {a} </div> */}
-    {/* <ProductDetail></ProductDetail> */}
+{/* <ProductDetail></ProductDetail> */ }
 
 
-    // import a,{Product,Hello} from "./Product";
+// import a,{Product,Hello} from "./Product";
 // import Product from "./Product";
 // import ProductDetail from "./ProductDetail";
-function App(){
-   console.log("app function Running");
-   const [query,setQuery]=useState("");
-   const [sort,setSort]=useState("default");
-  
-  const allData=[
 
-    {
-      title:"Black Printed coffee Mug",
-      price:"15",
-      imgUrl:"coffee-5232698_1280.jpg",
-      category:"Mug",
-    },
-    {
-      title:"white Printed coffee Mug",
-      price:"19",
-      imgUrl:"coffee-5232698_1280.jpg",
-      category:"Mug",
-    },
-    {
-      title:"black printed t-shirt",
-      price:"39",
-      imgUrl:"coffee-5232698_1280.jpg",
-      category:"t-shirts",
-    },
-  ];
+
+// function App() {
+//   console.log("app function Running");
+//   const [query, setQuery] = useState("");
+//   const [sort, setSort] = useState("default");
+
+//   const allData = [
+
+//     {
+//       title: "Black Printed coffee Mug",
+//       price: "15",
+//       imgUrl: "coffee-5232698_1280.jpg",
+//       category: "Mug",
+//     },
+//     {
+//       title: "white Printed coffee Mug",
+//       price: "19",
+//       imgUrl: "coffee-5232698_1280.jpg",
+//       category: "Mug",
+//     },
+//     {
+//       title: "black printed t-shirt",
+//       price: "39",
+//       imgUrl: "coffee-5232698_1280.jpg",
+//       category: "t-shirts",
+//     },
+//   ];
 
 //const data=allData;
-const [data,setData]=useState(allData);
+//   const [data, setData] = useState(allData);
 
- function handleChange(event){
-  const newQuery=event.target.value;
+//   function handleChange(event) {
+//     const newQuery = event.target.value;
 
-  const newData=allData.filter(function(item){
-    return item.title.toLowerCase().indexOf(newQuery.toLowerCase())!=-1;
-  });
+//     const newData = allData.filter(function (item) {
+//       return item.title.toLowerCase().indexOf(newQuery.toLowerCase()) != -1;
+//     });
 
-console.log("new data is",data);
+//     console.log("new data is", data);
 
-  setQuery(newQuery);
-   setData(newData);
- }
-  function handleSortChange(event){
-    setSort(event.target.value);
-  }
+//     setQuery(newQuery);
+//     setData(newData);
+//   }
+//   function handleSortChange(event) {
+//     setSort(event.target.value);
+//   }
 
-  return(
-    <div className="p-2">
- <input
- value={query}
- placeholder="Search"
- className="border border-gray-700 rounded-md mb-2 p-2"
- onChange={handleChange}
- />
- <select onChange={handleSortChange} className="border border-gray-700 rounded-md mb-2 ml-2" value={sort}>
-  <option value="default">default sort</option>
-  <option value="name">sort by name</option>
-  <option value="Price">sort by price</option>
- </select>
-    <ProductList products={data}/>
+//   return (
+//     <div className="p-2">
+//       <input
+//         value={query}
+//         placeholder="Search"
+//         className="border border-gray-700 rounded-md mb-2 p-2"
+//         onChange={handleChange}
+//       />
+//       <select onChange={handleSortChange} className="border border-gray-700 rounded-md mb-2 ml-2" value={sort}>
+//         <option value="default">default sort</option>
+//         <option value="name">sort by name</option>
+//         <option value="Price">sort by price</option>
+//       </select>
+//       <ProductList products={data} />
+//     </div>
+//   );
+// }
+
+
+import React, { useRef } from 'react'
+
+const App = () => {
+  const inputRef = useRef();
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" />
+      <button onClick={focusInput}>Focus Input</button>
     </div>
-  );
+  )
 }
+
+
+
 export default App;
